@@ -12,10 +12,11 @@ gulp.task('build', watchify(function (watchify) {
             debug : true
         }))
         .pipe(shell([
-            'cp -rf src/core/css dist/css'
+            'mkdir -p dist/vendor;cp -r src/vendor/css dist/vendor/css',
+            'mkdir -p dist/core;cp -r src/core/css dist/core/css'
         ]))
         .pipe(rename('main.js'))
-        .pipe(gulp.dest('./dist/js'))
+        .pipe(gulp.dest('./dist/core/js'))
 }));
 
 gulp.task('clean', shell.task([
