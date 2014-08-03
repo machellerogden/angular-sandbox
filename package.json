@@ -1,0 +1,41 @@
+{
+  "name": "angular-sandbox",
+  "version": "0.0.1",
+  "description": "An Angular.js Sandbox",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "~1.2.19",
+    "jquery": "~2.1.1",
+    "twitter-bootstrap": "~2.1.1"
+  },
+  "devDependencies": {
+    "gulp": "~3.8.7",
+    "gulp-eslint": "~0.1.8",
+    "gulp-karma": "0.0.4",
+    "gulp-jasmine": "~0.3.0",
+    "browserify": "~5.9.1",
+    "gulp-browserify": "~0.5.0",
+    "minimist": "~0.2.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-shell": "~0.2.9",
+    "watchify": "~0.6.4",
+    "gulp-watchify": "~0.2.0"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "build": "gulp package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/machellerogden/angular-sandbox"
+  },
+  "keywords": [
+    "angularjs"
+  ],
+  "author": "Mac Heller-Ogden <mac@machellerogden.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/machellerogden/angular-sandbox/issues"
+  },
+  "homepage": "https://github.com/machellerogden/angular-sandbox"
+}
