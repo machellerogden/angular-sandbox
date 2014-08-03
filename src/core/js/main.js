@@ -1,9 +1,7 @@
-(function () {
-    console.log('@main');
+console.log('@main');
 
-    var main = {
-            app: require('./app/app')
-        };
+var main = {
+        app: require('./app/app')
+    };
 
-    module.exports = main;
-}());
+module.exports = main;
