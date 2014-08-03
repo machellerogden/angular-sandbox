@@ -6,7 +6,7 @@
   "dependencies": {
     "angular": "~1.2.19",
     "jquery": "~2.1.1",
-    "twitter-bootstrap": "~2.1.1"
+    "twitter-bootstrap-3.0.0": "~3.0.0"
   },
   "devDependencies": {
     "gulp": "~3.8.7",

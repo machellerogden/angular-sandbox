@@ -5,12 +5,15 @@ var gulp = require('gulp'),
     watchify = require('gulp-watchify');
 
 gulp.task('build', watchify(function (watchify) {
-    gulp.src('src/js/main.js')
+    gulp.src('src/core/js/main.js')
         .pipe(watchify({
             watch: watching,
             insertGlobals : true,
             debug : true
         }))
+        .pipe(shell([
+            'cp -rf src/core/css dist/css'
+        ]))
         .pipe(rename('main.js'))
         .pipe(gulp.dest('./dist/js'))
 }));
