@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     rename = require('gulp-rename'),
     shell = require('gulp-shell'),
+    karma = require('gulp-karma'),
     watching = false,
     watchify = require('gulp-watchify');
 
@@ -26,7 +27,7 @@ gulp.task('clean', shell.task([
 ]));
 
 // Hack to enable configurable watchify watching
-gulp.task('enable-watch-mode', function() { watching = true; });
+gulp.task('enable-watch-mode', function () { watching = true; });
 
 gulp.task('watchify', ['enable-watch-mode', 'build']);
 
@@ -37,3 +38,16 @@ gulp.task('watch', ['watchify'], function () {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['build']);
+
+gulp.task('test', function () {
+  // Be sure to return the stream
+  return gulp.src(['test/specs/app/app.js'])
+    .pipe(karma({
+      configFile: 'test/karma.conf.js',
+      action: 'run'
+    }))
+    .on('error', function (err) {
+      // Make sure failed tests cause gulp to exit non-zero
+      throw err;
+    });
+});
