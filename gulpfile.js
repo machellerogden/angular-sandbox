@@ -11,12 +11,14 @@ gulp.task('build', watchify(function (watchify) {
             insertGlobals : true,
             debug : true
         }))
-        .pipe(shell([
-            'mkdir -p dist/vendor;cp -r src/vendor/css dist/vendor/css',
-            'mkdir -p dist/core;cp -r src/core/css dist/core/css'
-        ]))
         .pipe(rename('main.js'))
         .pipe(gulp.dest('./dist/core/js'))
+        .pipe(shell([
+            'mkdir -p dist/vendor',
+            'cp -r src/vendor/css dist/vendor/css',
+            'mkdir -p dist/core',
+            'cp -r src/core/css dist/core/css'
+        ]));
 }));
 
 gulp.task('clean', shell.task([
@@ -24,9 +26,9 @@ gulp.task('clean', shell.task([
 ]));
 
 // Hack to enable configurable watchify watching
-gulp.task('enable-watch-mode', function() { watching = true });
+gulp.task('enable-watch-mode', function() { watching = true; });
 
-gulp.task('watchify', ['enable-watch-mode', 'build'])
+gulp.task('watchify', ['enable-watch-mode', 'build']);
 
 // Rerun tasks when a file changes
 gulp.task('watch', ['watchify'], function () {
@@ -34,4 +36,4 @@ gulp.task('watch', ['watchify'], function () {
 });
 
 // The default task (called when you run `gulp` from cli)
- gulp.task('default', ['build'])
+gulp.task('default', ['build']);
